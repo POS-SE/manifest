@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="kei"
+           fetch="https://gitlab.com/kei-space/pixelos"
+           revision="fourteen" />
+
+  <remote  name="pixelos-se"
+           fetch="https://github.com/POS-SE"
+           revision="fourteen" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" groups="pdk" remote="pixelos-se">
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="pixelos-se">
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
+
+  <!-- External -->
+  <project path="external/arm-optimized-routines" name="external_arm-optimized-routines" groups="pdk" remote="pixelos-se" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="pixelos-se" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="pixelos-se" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="pixelos-se" />
+
+  <!-- Hardware -->
+  <project path="hardware/qcom-caf/sm8450/display" name="android_hardware_qcom_display" groups="qcom" revision="lineage-21.0-caf-sm8450" remote="pixelos-se" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="pixelos-se" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk" remote="pixelos-se" />
+  <project path="packages/overlays/ThemeIcons" name="packages_overlays_ThemeIcons" remote="pixelos-se" />
+  <project path="packages/overlays/GameSpace" name="packages_apps_GameSpace" remote="pixelos-se" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" groups="pdk" remote="pixelos-se" />
+
+  <!-- Device -->
+  <project path="device/lineage/sepolicy" name="device_lineage_sepolicy" remote="pixelos-se" />
+
+  <!-- Vendor -->
+  <project path="vendor/aosp" name="vendor_aosp" remote="pixelos-se" />
+  <project path="vendor/aosp/extras" name="vendor_extras" remote="kei" />
+
+</manifest>
