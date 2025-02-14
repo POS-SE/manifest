@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="kei"
+           fetch="https://gitlab.com/kei-space/pixelos"
+           revision="fifteen" />
+
+  <remote  name="pixelos-se"
+           fetch="https://github.com/POS-SE"
+           revision="fifteen" />
+
+  <!-- Rootdir -->
+  <project path="art" name="art" groups="pdk" remote="pixelos-se" />
+
+  <!-- Build -->
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="pixelos-se">
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
+
+  <!-- External -->
+  <project path="external/skia" name="external_skia" groups="pdk" remote="pixelos-se" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="pixelos-se" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="pixelos-se" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="pixelos-se" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="pixelos-se" />
+
+  <!-- Vendor -->
+  <project path="vendor/aosp" name="vendor_aosp" remote="pixelos-se" />
+  <project path="vendor/extra" name="vendor_extra" remote="kei" />
+
+</manifest>
